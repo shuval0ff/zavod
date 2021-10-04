@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class Home {
 
@@ -25,12 +26,14 @@ public class Home {
     void initialize() {
        
         
-        workButton.setOnAction(event -> {
+        /* workButton.setOnAction(event -> {
 
            workButton.getScene().getWindow().hide();
             FXMLLoader loaders =  new FXMLLoader();
             loaders.setLocation(getClass().getResource("works.fxml"));
         });
+*/
+    }
+
 
     }
-}
