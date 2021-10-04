@@ -1,6 +1,6 @@
 package com.example.zavod;
 
-public class Const {
+public class Constant {
     public static final String USER_TABLE = "users";
     public static final String USERS_ID = "idusers";
     public static final String USERS_FIRSTNAME = "firstname";
@@ -10,6 +10,6 @@ public class Const {
     public static final String USERS_LOCATION = "location";
     public static final String USERS_GENDER = "gender";
 
-    public Const() {
+    public Constant() {
     }
 }

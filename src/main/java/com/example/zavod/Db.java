@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DatabaseHandler extends Configs {
+public class Db extends Data {
     Connection dbConnection;
 
-    public DatabaseHandler() {
+    public Db() {
     }
 
     public Connection getDbConnection() throws ClassNotFoundException, SQLException {
@@ -19,17 +19,17 @@ public class DatabaseHandler extends Configs {
         return this.dbConnection;
     }
 
-    public void signUpUser(User user) {
+    public void signUpUser(Users users) {
         String insert = "INSERT INTO users(firstname,lastname,login,password,location,gender)VALUES(?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = this.getDbConnection().prepareStatement(insert);
-            prSt.setString(1, user.getFirstName());
-            prSt.setString(2, user.getLastName());
-            prSt.setString(3, user.getUserName());
-            prSt.setString(4, user.getPassword());
-            prSt.setString(5, user.getLocation());
-            prSt.setString(6, user.getGender());
+            prSt.setString(1, users.getFirstName());
+            prSt.setString(2, users.getLastName());
+            prSt.setString(3, users.getUserName());
+            prSt.setString(4, users.getPassword());
+            prSt.setString(5, users.getLocation());
+            prSt.setString(6, users.getGender());
             prSt.executeUpdate();
         } catch (SQLException var4) {
             var4.printStackTrace();
@@ -39,14 +39,14 @@ public class DatabaseHandler extends Configs {
 
     }
 
-    public ResultSet getUser(User user) {
+    public ResultSet getUser(Users users) {
         ResultSet resSet = null;
         String select = "SELECT * FROM users WHERE login=? AND password=?";
 
         try {
             PreparedStatement prSt = this.getDbConnection().prepareStatement(select);
-            prSt.setString(1, user.getUserName());
-            prSt.setString(2, user.getPassword());
+            prSt.setString(1, users.getUserName());
+            prSt.setString(2, users.getPassword());
             resSet = prSt.executeQuery();
         } catch (SQLException var5) {
             var5.printStackTrace();

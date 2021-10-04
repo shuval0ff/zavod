@@ -9,7 +9,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class SignUpController {
+public class SignUp {
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -34,7 +34,7 @@ public class SignUpController {
     @FXML
     private Button buttonBack;
 
-    public SignUpController() {
+    public SignUp() {
     }
 
     @FXML
@@ -55,7 +55,7 @@ public class SignUpController {
     }
 
     private void signUpNewUser() {
-        DatabaseHandler dbHandler = new DatabaseHandler();
+        Db dbHandler = new Db();
         String firstName = this.signUpName.getText();
         String lastName = this.signUpLastName.getText();
         String login = this.login_field.getText();
@@ -68,8 +68,8 @@ public class SignUpController {
             gender = "Женский";
         }
 
-        User user = new User(firstName, lastName, login, password, location, gender);
-        dbHandler.signUpUser(user);
+        Users users = new Users(firstName, lastName, login, password, location, gender);
+        dbHandler.signUpUser(users);
     }
 }
 

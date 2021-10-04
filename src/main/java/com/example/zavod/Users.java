@@ -1,6 +1,6 @@
 package com.example.zavod;
 
-public class User {
+public class Users {
     private String firstName;
     private String lastName;
     private String login;
@@ -8,7 +8,7 @@ public class User {
     private String location;
     private String gender;
 
-    public User(String firstName, String lastName, String login, String password, String location, String gender) {
+    public Users(String firstName, String lastName, String login, String password, String location, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
@@ -17,7 +17,7 @@ public class User {
         this.gender = gender;
     }
 
-    public User() {
+    public Users() {
     }
 
     public String getFirstName() {

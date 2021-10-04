@@ -1,6 +1,6 @@
 package com.example.zavod;
 
-import com.example.zavod.animations.Shake;
+import com.example.zavod.anim.Anim;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Controller {
+public class Login {
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -30,7 +30,7 @@ public class Controller {
     @FXML
     private Button loginSignUpButton;
 
-    public Controller() {
+    public Login() {
     }
 
     @FXML
@@ -51,11 +51,11 @@ public class Controller {
     }
 
     private void loginUser(String loginText, String loginPassword) {
-        DatabaseHandler dbHandler = new DatabaseHandler();
-        User user = new User();
-        user.setUserName(loginText);
-        user.setPassword(loginPassword);
-        ResultSet result = dbHandler.getUser(user);
+        Db dbHandler = new Db();
+        Users users = new Users();
+        users.setUserName(loginText);
+        users.setPassword(loginPassword);
+        ResultSet result = dbHandler.getUser(users);
         int counter = 0;
 
         try {
@@ -69,8 +69,8 @@ public class Controller {
         if (counter >= 1) {
             this.openNewScene("app.fxml");
         } else {
-            Shake userLoginAnim = new Shake(this.login_field);
-            Shake userPassAnim = new Shake(this.password_field);
+            Anim userLoginAnim = new Anim(this.login_field);
+            Anim userPassAnim = new Anim(this.password_field);
             userLoginAnim.playAnim();
             userPassAnim.playAnim();
         }
