@@ -3,6 +3,8 @@ module com.example.zavod {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.sql;
+    requires org.testng;
+    requires junit;
 
 
     opens com.example.zavod to javafx.fxml;
